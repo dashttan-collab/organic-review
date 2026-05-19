@@ -5,231 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Organic Express Review Helper</title>
 <style>
-*{box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f6f6f6;margin:0;padding:18px;color:#111}
-.card{max-width:560px;margin:auto;background:#fff;padding:24px;border-radius:24px;box-shadow:0 10px 35px rgba(0,0,0,.1)}
-h1{text-align:center;margin:0 0 8px;font-size:28px}
-.sub{text-align:center;color:#666;margin-bottom:22px}
-.title{font-weight:700;margin:18px 0 10px;font-size:18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn{border:1px solid #ddd;background:#f5f5f5;padding:14px 10px;border-radius:15px;font-size:15px;font-weight:700;cursor:pointer;text-align:center;min-height:56px;color:#1a73e8}
-.btn.active{background:#111;color:#fff;border-color:#111}
-.btn.disabled{background:#eee;color:#aaa;border-color:#e0e0e0;cursor:not-allowed}
-textarea{width:100%;min-height:245px;padding:15px;border:1px solid #ddd;border-radius:15px;font-size:16px;line-height:1.5;resize:vertical;font-weight:600}
-.action{width:100%;display:block;border:none;border-radius:15px;margin-top:14px;padding:16px;font-size:18px;font-weight:800;text-align:center;text-decoration:none;cursor:pointer}
-.light{background:#eee;color:#111}
-.copy{background:#444;color:white}
-.review{background:#111;color:white}
-.note{font-size:14px;color:#666;line-height:1.65;margin-top:18px;text-align:left}
-.footer{font-size:13px;color:#888;line-height:1.5;margin-top:18px;text-align:center}
-.toast{display:none;margin-top:12px;padding:12px;border-radius:12px;background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700}
+*{box-sizing:border-box}body{font-family:Arial,sans-serif;background:#f6f6f6;margin:0;padding:18px;color:#111}.card{max-width:560px;margin:auto;background:#fff;padding:24px;border-radius:24px;box-shadow:0 10px 35px rgba(0,0,0,.1)}h1{text-align:center;margin:0 0 8px;font-size:28px}.sub{text-align:center;color:#666;margin-bottom:22px}.title{font-weight:700;margin:18px 0 10px;font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:1px solid #ddd;background:#f5f5f5;padding:14px 10px;border-radius:15px;font-size:15px;font-weight:700;cursor:pointer;text-align:center;min-height:56px;color:#1a73e8}.btn.active{background:#111;color:#fff;border-color:#111}.btn.disabled{background:#eee;color:#aaa;border-color:#e0e0e0;cursor:not-allowed}textarea{width:100%;min-height:245px;padding:15px;border:1px solid #ddd;border-radius:15px;font-size:16px;line-height:1.5;resize:vertical;font-weight:600}.action{width:100%;display:block;border:none;border-radius:15px;margin-top:14px;padding:16px;font-size:18px;font-weight:800;text-align:center;text-decoration:none;cursor:pointer}.light{background:#eee;color:#111}.copy{background:#444;color:white}.review{background:#111;color:white}.note{font-size:14px;color:#666;line-height:1.65;margin-top:18px;text-align:left}.footer{font-size:13px;color:#888;line-height:1.5;margin-top:18px;text-align:center}.toast{display:none;margin-top:12px;padding:12px;border-radius:12px;background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700}
 </style>
 </head>
 <body>
 <main class="card">
 <h1>Thank you for visiting us ⭐</h1>
 <div class="sub">Organic Express Hair Color Lab</div>
-
-<div class="title">1. 选择发型师 / Select Stylist</div>
-<div class="grid" id="stylistBox"></div>
-
-<div class="title">2. 选择服务 / Select Service</div>
-<div class="grid" id="serviceBox"></div>
-
-<div class="title">3. Review 文案</div>
-<textarea id="reviewText"></textarea>
-
+<div class="title">1. 选择发型师 / Select Stylist</div><div class="grid" id="stylistBox"></div>
+<div class="title">2. 选择服务 / Select Service</div><div class="grid" id="serviceBox"></div>
+<div class="title">3. Review 文案</div><textarea id="reviewText"></textarea>
 <button class="action light" onclick="generateReview()">换一个文案<br>Generate Another Review</button>
 <button class="action copy" onclick="copyReview()">复制 Review 文案<br>Copy Review</button>
-<a class="action review" href="href="https://search.google.com/local/writereview?placeid=ChIJP5qTqmYZ2jERLUgJiRP1uls"" target="_blank">打开 Google Review<br>Open Google Review</a>
-
+<a class="action review" href="https://search.google.com/local/writereview?placeid=ChIJP5qTqmYZ2jERLUgJiRP1uls" target="_blank">打开 Google Review<br>Open Google Review</a>
 <div id="toast" class="toast">Review 文案已复制 ✅</div>
-
-<div class="note">
-<b>使用方式：</b><br>
-1. 选择发型师<br>
-2. 选择服务（最多4个）<br>
-3. 复制 Review 文案<br>
-4. 打开 Google Review<br>
-5. 顾客自己选择星星、粘贴文案并确认发布<br><br>
-<b>How to use:</b><br>
-1. Select stylist<br>
-2. Select service (up to 4)<br>
-3. Copy the review text<br>
-4. Open Google Review<br>
-5. Customer selects the star rating, pastes the review, and confirms posting
-</div>
-
-<div class="footer">
-Please only leave a review based on your genuine experience.<br>
-请根据你的真实体验留下评价。
-</div>
+<div class="note"><b>使用方式：</b><br>1. 选择发型师<br>2. 选择服务（最多4个）<br>3. 复制 Review 文案<br>4. 打开 Google Review<br>5. 顾客自己选择星星、粘贴文案并确认发布<br><br><b>How to use:</b><br>1. Select stylist<br>2. Select service (up to 4)<br>3. Copy the review text<br>4. Open Google Review<br>5. Customer selects the star rating, pastes the review, and confirms posting</div>
+<div class="footer">Please only leave a review based on your genuine experience.<br>请根据你的真实体验留下评价。</div>
 </main>
-
 <script>
-const stylists = ["Dash","Kelvin","Jacky","Adib"];
-
-const services = [
-  {key:"color", en:"hair color", label:"染发<br>Hair Color"},
-  {key:"scalp", en:"scalp treatment", label:"头皮护理<br>Scalp Treatment"},
-  {key:"treatment", en:"hair treatment", label:"头发护理<br>Hair Treatment"},
-  {key:"haircut", en:"haircut", label:"剪发<br>Haircut"},
-  {key:"rebonding", en:"rebonding", label:"拉直<br>Rebonding"},
-  {key:"perming", en:"perming", label:"烫发<br>Perming"},
-  {key:"highlight", en:"highlight", label:"挑染<br>Highlight"}
-];
-
-let selectedStylist = "Dash";
-let selectedServices = ["color"];
-
-const exclusive = ["rebonding","perming","highlight"];
-
-const openings = [
-  "I had a great experience with {stylist}.",
-  "Very satisfied with the service by {stylist}.",
-  "{stylist} was friendly, patient, and professional.",
-  "I’m happy with the service provided by {stylist}.",
-  "{stylist} took great care of me during my session.",
-  "Overall, it was a pleasant experience with {stylist}.",
-  "{stylist} explained everything clearly and professionally.",
-  "I had a comfortable and enjoyable experience with {stylist}."
-];
-
-const serviceLines = {
-  color:[
-    "The hair color result looks natural and beautiful.",
-    "The color suits me very well.",
-    "The final color looks soft and fresh.",
-    "The whole coloring process was comfortable."
-  ],
-  scalp:[
-    "The scalp treatment felt relaxing and comfortable.",
-    "The scalp analysis was detailed and professional.",
-    "I learned more about my scalp condition.",
-    "My scalp felt cleaner and refreshed after the treatment."
-  ],
-  treatment:[
-    "My hair feels smoother and softer after the treatment.",
-    "The treatment improved my hair texture.",
-    "My hair feels healthier now.",
-    "My hair looks more manageable after the session."
-  ],
-  haircut:[
-    "The haircut is neat and easy to manage.",
-    "The stylist understood what I wanted.",
-    "The haircut suits my face shape well.",
-    "The result is clean, fresh, and natural."
-  ],
-  rebonding:[
-    "The rebonding result looks smooth and natural.",
-    "My hair feels easier to manage after rebonding.",
-    "The stylist handled my hair carefully throughout the process.",
-    "The result looks neat without feeling too flat."
-  ],
-  perming:[
-    "The perming result looks natural and stylish.",
-    "The curls look soft and suitable for me.",
-    "The stylist explained the perming process clearly.",
-    "The final perm looks fresh and easy to manage."
-  ],
-  highlight:[
-    "The highlight result looks stylish and natural.",
-    "The color blend looks soft and beautiful.",
-    "The final highlight result suits me well.",
-    "The color placement looks balanced and nice."
-  ]
-};
-
-const endings = [
-  "Highly recommended.",
-  "Will come back again.",
-  "Very satisfied overall.",
-  "Good service and comfortable environment.",
-  "I would recommend this place to others.",
-  "Overall, I had a pleasant experience.",
-  "The team was friendly and professional.",
-  "I’m happy with the result and service."
-];
-
-function rand(arr){ return arr[Math.floor(Math.random()*arr.length)] }
-
-function formatList(keys){
-  const names = keys.map(k => services.find(s=>s.key===k).en);
-  if(names.length===1) return names[0];
-  if(names.length===2) return names[0] + " and " + names[1];
-  return names.slice(0,-1).join(", ") + ", and " + names[names.length-1];
-}
-
-function isDisabled(key){
-  if(selectedServices.includes(key)) return false;
-  if(selectedServices.length >= 4) return true;
-  const hasExclusive = selectedServices.some(k => exclusive.includes(k));
-  if(exclusive.includes(key) && hasExclusive) return true;
-  return false;
-}
-
-function render(){
-  document.getElementById("stylistBox").innerHTML = stylists.map(s =>
-    `<button class="btn ${selectedStylist===s?'active':''}" onclick="selectStylist('${s}')">${s}</button>`
-  ).join("");
-
-  document.getElementById("serviceBox").innerHTML = services.map(s => {
-    const active = selectedServices.includes(s.key);
-    const disabled = isDisabled(s.key);
-    return `<button class="btn ${active?'active':''} ${disabled?'disabled':''}" onclick="toggleService('${s.key}')">${s.label}</button>`;
-  }).join("");
-}
-
-function selectStylist(s){
-  selectedStylist = s;
-  render();
-  generateReview();
-}
-
-function toggleService(key){
-  if(selectedServices.includes(key)){
-    selectedServices = selectedServices.filter(k=>k!==key);
-  } else {
-    if(isDisabled(key)) return;
-    selectedServices.push(key);
-  }
-  render();
-  generateReview();
-}
-
-function generateReview(){
-  if(selectedServices.length===0){
-    document.getElementById("reviewText").value = "Please select at least one service.";
-    return;
-  }
-
-  const serviceText = formatList(selectedServices);
-  let parts = [];
-  parts.push(rand(openings).replace("{stylist}", selectedStylist));
-  parts.push("I did " + serviceText + " this time.");
-
-  selectedServices.forEach(k => parts.push(rand(serviceLines[k])));
-
-  parts.push(rand(endings));
-
-  document.getElementById("reviewText").value = parts.join(" ");
-}
-
-async function copyReview(){
-  const text = document.getElementById("reviewText").value;
-  try{
-    await navigator.clipboard.writeText(text);
-  }catch(e){
-    const box = document.getElementById("reviewText");
-    box.focus(); box.select(); document.execCommand("copy");
-  }
-  const toast = document.getElementById("toast");
-  toast.style.display = "block";
-  setTimeout(()=>toast.style.display="none",1800);
-}
-
-render();
-generateReview();
+const stylists=["Dash","Kelvin","Jacky","Adib"];
+const services=[{key:"color",en:"hair color",label:"染发<br>Hair Color"},{key:"scalp",en:"scalp treatment",label:"头皮护理<br>Scalp Treatment"},{key:"treatment",en:"hair treatment",label:"头发护理<br>Hair Treatment"},{key:"haircut",en:"haircut",label:"剪发<br>Haircut"},{key:"rebonding",en:"rebonding",label:"拉直<br>Rebonding"},{key:"perming",en:"perming",label:"烫发<br>Perming"},{key:"highlight",en:"highlight",label:"挑染<br>Highlight"}];
+let selectedStylist="Dash";let selectedServices=["color"];const exclusive=["rebonding","perming","highlight"];
+const openings=["I had a great experience with {stylist}.","Very satisfied with the service by {stylist}.","{stylist} was friendly, patient, and professional.","I’m happy with the service provided by {stylist}.","{stylist} took great care of me during my session.","Overall, it was a pleasant experience with {stylist}.","{stylist} explained everything clearly and professionally.","I had a comfortable and enjoyable experience with {stylist}."];
+const serviceLines={color:["The hair color result looks natural and beautiful.","The color suits me very well.","The final color looks soft and fresh.","The whole coloring process was comfortable."],scalp:["The scalp treatment felt relaxing and comfortable.","The scalp analysis was detailed and professional.","I learned more about my scalp condition.","My scalp felt cleaner and refreshed after the treatment."],treatment:["My hair feels smoother and softer after the treatment.","The treatment improved my hair texture.","My hair feels healthier now.","My hair looks more manageable after the session."],haircut:["The haircut is neat and easy to manage.","The stylist understood what I wanted.","The haircut suits my face shape well.","The result is clean, fresh, and natural."],rebonding:["The rebonding result looks smooth and natural.","My hair feels easier to manage after rebonding.","The stylist handled my hair carefully throughout the process.","The result looks neat without feeling too flat."],perming:["The perming result looks natural and stylish.","The curls look soft and suitable for me.","The stylist explained the perming process clearly.","The final perm looks fresh and easy to manage."],highlight:["The highlight result looks stylish and natural.","The color blend looks soft and beautiful.","The final highlight result suits me well.","The color placement looks balanced and nice."]};
+const endings=["Highly recommended.","Will come back again.","Very satisfied overall.","Good service and comfortable environment.","I would recommend this place to others.","Overall, I had a pleasant experience.","The team was friendly and professional.","I’m happy with the result and service."];
+function rand(a){return a[Math.floor(Math.random()*a.length)]}function formatList(keys){const names=keys.map(k=>services.find(s=>s.key===k).en);if(names.length===1)return names[0];if(names.length===2)return names[0]+" and "+names[1];return names.slice(0,-1).join(", ")+", and "+names[names.length-1]}function isDisabled(key){if(selectedServices.includes(key))return false;if(selectedServices.length>=4)return true;const hasExclusive=selectedServices.some(k=>exclusive.includes(k));if(exclusive.includes(key)&&hasExclusive)return true;return false}
+function render(){document.getElementById("stylistBox").innerHTML=stylists.map(s=>`<button class="btn ${selectedStylist===s?'active':''}" onclick="selectStylist('${s}')">${s}</button>`).join("");document.getElementById("serviceBox").innerHTML=services.map(s=>{const active=selectedServices.includes(s.key),disabled=isDisabled(s.key);return `<button class="btn ${active?'active':''} ${disabled?'disabled':''}" onclick="toggleService('${s.key}')">${s.label}</button>`}).join("")}
+function selectStylist(s){selectedStylist=s;render();generateReview()}function toggleService(key){if(selectedServices.includes(key)){selectedServices=selectedServices.filter(k=>k!==key)}else{if(isDisabled(key))return;selectedServices.push(key)}render();generateReview()}function generateReview(){if(selectedServices.length===0){document.getElementById("reviewText").value="Please select at least one service.";return}let parts=[];parts.push(rand(openings).replace("{stylist}",selectedStylist));parts.push("I did "+formatList(selectedServices)+" this time.");selectedServices.forEach(k=>parts.push(rand(serviceLines[k])));parts.push(rand(endings));document.getElementById("reviewText").value=parts.join(" ")}
+async function copyReview(){const text=document.getElementById("reviewText").value;try{await navigator.clipboard.writeText(text)}catch(e){const box=document.getElementById("reviewText");box.focus();box.select();document.execCommand("copy")}const toast=document.getElementById("toast");toast.style.display="block";setTimeout(()=>toast.style.display="none",1800)}
+render();generateReview();
 </script>
 </body>
 </html>
